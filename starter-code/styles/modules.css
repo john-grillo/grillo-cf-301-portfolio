@@ -11,18 +11,29 @@
 
 .main-nav {
   padding: 0.1em;
+  float: right;
 }
 
 .main-nav ul {
-  display: none;
+  display: inline-block;
   padding: 0;
   list-style: none;
   clear: both;
 }
 
-.main-nav:hover ul {
-  display: block;
+.main-nav ul li {
+  display: inline-block;
+  clear: both;
 }
+
+/*.main-nav ul li:hover {
+  transition-duration: 2s
+
+}*/
+
+/*.main-nav:hover ul {
+  display: block;
+}*/
 
 .main-nav li {
   margin-right: .4em;
@@ -49,8 +60,64 @@
   text-decoration: none;
 }
 
+.icon-menu {
+  float: right;
+  margin: 1.5rem 2.5rem;
+  display: none;
+  clear: both;
+}
+
+.icon-menu:hover {
+  font-size: 2rem;
+  padding-left: 2rem;
+  transition-duration: 2s;
+
+}
+
 /* TODO: Now add styles for how things should look on a larger screen:
          - Hide the hamburger.
          - Main should be all on one row, with padding spaced better for a larger screen.
          - Just, ya know, try to make it look good! */
 /* @media only screen... */
+
+@media only screen and (max-width: 501px) {
+  /*this will turn on/off the css menu */
+.open {
+  display: block;
+  
+}
+
+.icon-menu {
+  float: right;
+  margin: 1.5rem 2.5rem;
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.main-nav {
+  padding: 0.1em;
+}
+
+.main-nav ul {
+  display: none;
+  padding: 0;
+  list-style: none;
+  clear: both;
+}
+
+.main-nav:hover ul {
+  display: block;
+  max-width: 250px;
+}
+
+.main-nav li {
+  margin-right: .4em;
+  font-size: 1.5em;
+  padding: .5em .2em;
+  border-bottom: 1px solid #ccc;
+}
+
+/* end of cell phone 480px media query; written by john grillo */
+}
