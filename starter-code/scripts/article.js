@@ -32,14 +32,14 @@ Article.prototype.toHtml = function() {
 
   if (!this.publishedOn) $newArticle.addClass('draft');
     $newArticle.data('category', this.category);
-    $newArticle.find('a').replaceWith('<a href="' + this.authorUrl + '"></a>');
+    $newArticle.find('a').replaceWith('<a href="' + this.authorUrl + '"> ' + this.author + ' </a>');
     $newArticle.find('h1').replaceWith('<h1>' + this.title + '</h1>');
-    // $newArticle.data('body', this.body);
-    // $newArticle.data('publishedOn', this.publishedOn);
+    $newArticle.find('.article-body').replaceWith(this.body);
+    $newArticle.find('publishedOn').replaceWith(this.publishedOn);
   
 
   // Display the date as a relative number of 'days ago'
-  $newArticle.find('time').html('about ' + parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000) + ' days ago');
+  $newArticle.find('time').html( 'Originally published: ' + this.publishedOn + '; so about ' + parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000) + ' days ago.');
   $newArticle.append('<hr>');
   return $newArticle;
 };
