@@ -8,7 +8,7 @@ function Article (rawDataObj) {
   this.title = rawDataObj.title;
   this.category = rawDataObj.category;
   this.author = rawDataObj.author;
-  this.authorURL = rawDataObj.authorURL;
+  this.authorUrl = rawDataObj.authorUrl;
   this.publishedOn = rawDataObj.publishedOn;
   this.body = rawDataObj.body;
 }
@@ -32,7 +32,7 @@ Article.prototype.toHtml = function() {
 
   if (!this.publishedOn) $newArticle.addClass('draft');
     $newArticle.data('category', this.category);
-    // $newArticle.data('url', this.authorURL);
+    $newArticle.find('a').replaceWith('<a href="' + this.authorUrl + '"></a>');
     $newArticle.find('h1').replaceWith('<h1>' + this.title + '</h1>');
     // $newArticle.data('body', this.body);
     // $newArticle.data('publishedOn', this.publishedOn);
