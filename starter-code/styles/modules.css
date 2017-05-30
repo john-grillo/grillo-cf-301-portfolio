@@ -67,12 +67,12 @@
   clear: both;
 }
 
-.icon-menu:hover {
+/*.icon-menu:hover {
   font-size: 2rem;
   padding-left: 2rem;
   transition-duration: 2s;
 
-}
+}*/
 
 /* TODO: Now add styles for how things should look on a larger screen:
          - Hide the hamburger.
@@ -82,9 +82,12 @@
 
 @media only screen and (max-width: 501px) {
   /*this will turn on/off the css menu */
-.open {
-  display: block;
-  
+.main-nav ul.open {
+  display: block; 
+}
+
+.closed {
+  display: none;
 }
 
 .icon-menu {
@@ -107,10 +110,10 @@
   clear: both;
 }
 
-.main-nav:hover ul {
+/*.main-nav:hover ul {
   display: block;
   max-width: 250px;
-}
+}*/
 
 .main-nav li {
   margin-right: .4em;

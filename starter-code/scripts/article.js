@@ -57,3 +57,11 @@ rawData.forEach(function(articleObject) {
 articles.forEach(function(article) {
   $('#articles').append(article.toHtml());
 });
+
+var $menu = $('nav.main-nav ul');
+
+$('.icon-menu').click(function() {
+  console.log('running');
+  $menu.toggleClass('open');
+});
+
