@@ -5,6 +5,12 @@ var articles = [];
 function Article (rawDataObj) {
   // TODO: Use the JS object passed in to complete this constructor function:
   // Save ALL the properties of `rawDataObj` into `this`
+  this.title = title;
+  this.category = category;
+  this.author = author;
+  this.authorURL = authorURL;
+  this.publishedOn = publishedOn;
+  this.body = body;
 }
 
 Article.prototype.toHtml = function() {
@@ -14,8 +20,6 @@ Article.prototype.toHtml = function() {
   with a class of template a display of none. Let's make
   sure we're not accidentally hiding our cloned article! */
 
-  if (!this.publishedOn) $newArticle.addClass('draft');
-  $newArticle.data('category', this.category);
 
   /* TODO: Now use jQuery traversal and setter methods to fill in the rest
   of the current template clone with properties from this particular Article instance.
@@ -25,6 +29,14 @@ Article.prototype.toHtml = function() {
     3. article title,
     4. article body, and
     5. publication date. */
+
+  if (!this.publishedOn) $newArticle.addClass('draft');
+  $newArticle.data('name', this.name);
+  $newArticle.data('category', this.category);
+  $newArticle.data('url', this.authorURL);
+  $newArticle.data('title', this.title);
+  $newArticle.data('body', this.body);
+  $newArticle.data('publishedOn', this.publishedOn);
 
   // Display the date as a relative number of 'days ago'
   $newArticle.find('time').html('about ' + parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000) + ' days ago');
