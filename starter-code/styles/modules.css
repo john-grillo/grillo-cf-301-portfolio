@@ -26,15 +26,6 @@
   clear: both;
 }
 
-/*.main-nav ul li:hover {
-  transition-duration: 2s
-
-}*/
-
-/*.main-nav:hover ul {
-  display: block;
-}*/
-
 .main-nav li {
   margin-right: .4em;
   font-size: 1.5em;
@@ -67,12 +58,17 @@
   clear: both;
 }
 
-/*.icon-menu:hover {
-  font-size: 2rem;
+.icon-menu:hover {
+  font-size: 3rem;
   padding-left: 2rem;
   transition-duration: 2s;
+}
 
-}*/
+.main-nav li:hover {
+  font-size: 166%;
+  transition-duration: 2s;
+  border-bottom-color: tomato;
+}
 
 /* TODO: Now add styles for how things should look on a larger screen:
          - Hide the hamburger.
@@ -84,19 +80,15 @@
   /*this will turn on/off the css menu */
 .main-nav ul.open {
   display: block; 
-}
-
-.closed {
-  display: none;
+  max-width: 50%;
+  margin: 0 auto;
 }
 
 .icon-menu {
   float: right;
   margin: 1.5rem 2.5rem;
   display: block;
-  position: absolute;
-  top: 0;
-  right: 0;
+  position: relative;
 }
 
 .main-nav {
@@ -109,11 +101,6 @@
   list-style: none;
   clear: both;
 }
-
-/*.main-nav:hover ul {
-  display: block;
-  max-width: 250px;
-}*/
 
 .main-nav li {
   margin-right: .4em;
