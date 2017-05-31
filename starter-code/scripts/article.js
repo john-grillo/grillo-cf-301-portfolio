@@ -58,10 +58,10 @@ articles.forEach(function(article) {
   $('#articles').append(article.toHtml());
 });
 
+// Toggle click the mobile menu
 var $menu = $('nav.main-nav ul');
 
 $('.icon-menu').click(function() {
-  console.log('running');
   $menu.toggleClass('open');
 });
 
