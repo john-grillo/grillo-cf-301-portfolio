@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>John Grillo Portfolio Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="vendor/styles/normalize.css">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/icons.css">
+  <link rel="stylesheet" href="styles/layout.css">
+  <link rel="stylesheet" href="styles/modules.css">
+  <link rel="icon" type="image/x-icon" href="assets/icons/grillologo.png">
+</head>
+<body>
+  <header class="site-header clearfix">
+    <section class="heading-group-h1">
+      <h1>
+        John Grillo Portfolio Page!
+      </h1>
+      <h2>The Slow Building of a Portfolio Page in CodefellowsPDX 301</h2>
+    </section>
+    <nav class="main-nav">
+      <div class="icon-menu"></div>
+      <ul>
+        <li class="tab" data-content="articles"><a href="#" class="icon-home"> Home</a></li>
+        <li class="tab" data-content="about"><a href="#" class="icon-address-book"> About</a></li>
+        <li><a href="https://twitter.com/IronJohnGrillo" target="_blank" class="icon-twitter3"> Twitter</a></li>
+        <li><a href="https://github.com/john-grillo" target="_blank" class="icon-github"> GitHub</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section id="articles" class="tab-content">
+      <div>
+        <ul id="filters">
+          <li>
+            <select id="author-filter">
+              <option value="">-- Filter by Authors --</option>
+            </select>
+          </li>
+          <li>
+            <select id="category-filter">
+              <option value="">-- Filter by Categories --</option>
+            </select>
+          </li>
+        </ul>
+      </div>
+      <article class="template" data-category="cat">
+        <header>
+          <h1>Title</h1>
+          <div class="byline">
+            By <address><a href="">Author Name</a></address>
+            published <time pubdate datetime="2000-01-01">Publish Time</time>
+          </div>
+        </header>
+        <section class="article-body"></section>
+        <a href="#" class="read-on">Read on &rarr;</a>
+      </article>
+    </section>
+    <section id="about" class="tab-content">
+      <header>
+        Welcome to my beginner Portfolio page! I'll make it better, day by day.
+      </header>
+      <section>
+        <h1>I have a wide variety of interests:</h1>
+        <h3>But I mainly break them down into 3 categories: Keep fit, earn extra dough and art</h3>
+        <ul>
+          <li>Keep fit</li>
+          <ul>
+            <li>Playing Basketball. Beats running on a treadmill any day! Someday I'll master my friend's hookshoot</li>
+            <li>Lightsaber dueling (for real, check picture gallery [coming soon]. Mine is Purple</li>
+            <li>Weightlifting.</li>
+            <li>Wrestling alligators while singing Chinese love songs!</li>
+          </ul>
+          <li>Earn Extra Dough</li>
+          <ul>
+            <li>Ghost writing -- I can help you write your papers!</li>
+            <li>Independent web work -- I am a full stack developer, after all </li>
+            <li>Learning new frameworks</li>
+            <li>Buying lotto tickets when <= $100,000,000. Wait, that's just voluntary taxes...</li>
+          </ul>
+          <li>Artistic Expressions</li>
+          <ul>
+            <li>Photography</li>
+            <li>Warhammer 40K! I play Necrons; I think I'll leave</li>
+            <li>Writing. I'm currently working on a book about the best/worst interviews I've ever had. I wish I was making this up!</li>
+          </ul>
+          <!--end of hobbies list -->
+        </ul>
+         <!--end of About section -->
+      </section>
+      <!--end of tab-content class section -->
+    </section>
+  </main>
+  <footer>
+    &copy; Grillo Resources LLC & John Grillo | A just static enough blog | Why are you reading this far?
+  </footer>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="scripts/blogArticles.js"></script>
+  <script src="scripts/article.js"></script>
+  <!-- TODO: Link our new script file in. -->
+  <script src="scripts/articleView.js"></script>
+</body>
+</html>
