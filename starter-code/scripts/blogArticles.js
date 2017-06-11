@@ -38,11 +38,11 @@ var rawData = [
     title:       'Projects - My "To Do" List',
     category:    'projects',
     author:      'John Grillo',
-    authorUrl:   'http://www.linkedin.com/in/johngrillo2,
+    authorUrl:   'http://www.linkedin.com/in/johngrillo2',
     publishedOn: '2017-06-08',
     body:        '<p>I have a variety of amazing projects and things I\'ve done! Sadly, they were all utlities for the firm or their client company. So nothing I can put on Github.</p><p>So what do you do when you need to keep skills sharp? projects. The trick is to choose something. So, without further ado, here are a few things I want to accomplish as a developer.</p><ul><li>Earn a PMP cert: Ok, this isn\'t a tech project per se, but It woul be nice to be able to actually have a project manager title</li><li>Twitterbot: I want to use either Python or Ruby/Rails to make a Twitterbot whose sole purpose is to output the local McMenamin\'s growler specials.</li><li>Make an AJAX-powered dynamic photo gallery webpage.</li><li>Mobile Phone book app. I don\'t know about everyone else, but I use an auto-record book in the car and track every drop of petrol that goes in it and every maintenence that it has done on it. My parents gave me that habbit, so I thought, why not produce an app for phones that does that?</li></ul>'
   },
-   {
+  {
     title:       'Projects - My Favorite Works.',
     category:    'projects',
     author:      'John Grillo',

@@ -10,7 +10,7 @@ articleView.populateFilters = function() {
     if (!$(this).hasClass('template')) {
 
       //All author  names are being scrapped and added to the author option filter
-      // Author's name is grabbed in the $(this) element, which jQuery grabs from every page article. Then, that option is populated via the optionTag variable.
+      // Authors' name is grabbed in the $(this) element, which jQuery grabs from every page article. Then, that option is populated via the optionTag variable.
       //Finally, #author-filter is appended with the data in the jQuery object.
       authorName = $(this).attr('data-author');
       optionTag = '<option value="' + authorName + '">' + authorName + '</option>';
@@ -106,25 +106,29 @@ articleView.handleMainNav = function() {
 //set up teasers. Hey, we want to hook people with our content, right?
 articleView.setTeasers = function() {
     //this clever piece of code will obscure everything beyond the first 3 lines
-    //codefellows taught me this part. Apparently you can use psuedo selectors in the $('')
-    // with jquery!
-    $('article-body *:nth-of-type(n+3)').hide();
+  //codefellows taught me this part. Apparently you can use psuedo selectors in the $('')
+  // with jquery!
+  $('article-body *:nth-of-type(n+3)').hide();
+  //so then, on click, we find the paragraph tag and hide it.
+  $('article').on('click', '.read-on', function () {
+    $(this).parent().find('p').show();
+    $(this).parent().find('.read-on').hide();
+  })
 
-//end of setTeasers    
-}
+  //end of setTeasers    
+};
 
 
 //the final code bloc will call all of the above functions.
 //this was written first because we fundamentally needed these items to create
 //a dynamic webpage.
 
-$(document.readyState() {
-    articleView.populateFilters();
-    articleView.handleAuthorFilter();
-    articleView.handleCategoryFilter();
-    articleView.handleMainNav();
-    articleView.setTeasers();
+$(document).ready(function() {
+  articleView.populateFilters();
+  articleView.handleAuthorFilter();
+  articleView.handleCategoryFilter();
+  articleView.handleMainNav();
+  articleView.setTeasers();
 
-
-//end document.ready
+  //end of document.ready.
 });
