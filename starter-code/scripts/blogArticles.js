@@ -1,6 +1,4 @@
-'use strict';
-
-var rawData = [
+[
   {
     title:       'What do you say to that?',
     category:    'Interview Story',
