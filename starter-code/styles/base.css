@@ -14,14 +14,49 @@ hr {
   color: #551A8B;
 }
 
+section {
+  margin-left: 1rem;
+}
+
 /*TEXT STYLES
 =======================================*/
 p {
   font-size: 1em;
+  font-family: Helvetica, 'Franklin Gothic Medium', sans-serif;
+  margin: 0.5rem;
+}
+
+p:first-child::first-letter {
+  color: #808; 
+  font-family: 'Playball', Impact, 'Arial Narrow Bold', serif;
+  line-height: 2;
+  font-size: 2.5rem;
 }
 
 address {
   display: inline-block;
+  
+}
+
+h1 {
+  font-family: Helvetica, 'Playball', 'Aladin', cursive;
+  color: #FF372A;
+  font-size: 3rem;
+} 
+
+.article h1 {
+  font-family: 'Playball', 'Aladin', cursive;
+  color: #FF372A;
+  font-size: 3rem;
+} 
+
+h2,
+h3, h4,
+h5, h6 {
+  font-family: 'Playball', 'Aladin', cursive;
+  color: #228b22;
+  font-size: 2.5rem;
+
 }
 
 /*LINK STYLES
@@ -29,12 +64,17 @@ address {
 
 a, a:link, a:active {
   text-decoration: none;
-  color: #777;
+  color: #86592d;
 }
 
 a:hover, a:focus {
   color: #29506D;
+  border-bottom: #29506D 2px solid;
+  transition-duration: 2s;
 }
 
 a:visited {
+  color: #ff751a;
+  text-decoration: underline;
 }
+

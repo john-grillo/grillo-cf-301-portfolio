@@ -82,7 +82,7 @@ articleView.handleMainNav = function () {
 
 //set up teasers. Hey, we want to hook people with our content, right?
 articleView.setTeasers = function() {
-  $('.article-body *:nth-of-type(n+3)').hide();
+  $('.article-body *:nth-of-type(n+2)').hide();
   $('article').on('click', 'a.read-on', function(e) {
     e.preventDefault();
     if ($(this).text() === 'Read on →') {
@@ -93,7 +93,7 @@ articleView.setTeasers = function() {
         scrollTop: ($(this).parent().offset().top)
       },200);
       $(this).html('Read on &rarr;');
-      $(this).parent().find('.article-body *:nth-of-type(n+3)').hide();
+      $(this).parent().find('.article-body *:nth-of-type(n+2)').hide();
     }
   });
 };
