@@ -17,6 +17,8 @@ Article.prototype.toHtml = function () {
 //portfolio piece 4 update: project automated using Handlebars.js
 //see older versions non-handlebars implementation, namely portfolio3 branch
 //Please see the documentation here for Handlebars.js || http://handlebarsjs.com/reference.html
+//The template does not and can not hold logic, so it must execute here.
+// 
   var templateFiller = Handlebars.compile($('#article-template').html());
   this.daysAgo = parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000);
   this.publishStatus = this.publishedOn ? `published ${this.daysAgo} days ago` : '(draft)';
