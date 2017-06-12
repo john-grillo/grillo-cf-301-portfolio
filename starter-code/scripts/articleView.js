@@ -19,13 +19,16 @@ articleView.populateFilters = function() {
       optionTag = `<option value="${val}">${val}</option>`;
       if ($(`#category-filter option[value="${val}"]`).length === 0) {
         $('#category-filter').append(optionTag);
+      //end of if bloc
       }
+    //end of outer if bloc
     }
+  //end of populateFilters function
   });
-};
 
 //end articleView populatefilter function
 };
+
 
 
 articleView.handleAuthorFilter = function() {
