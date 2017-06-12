@@ -14,30 +14,16 @@ function Article (rawDataObj) {
 }
 
 Article.prototype.toHtml = function () {
-  var $newArticle = $('article.template').clone();
-  $newArticle.removeClass('template');
-  if (!this.publishedOn) {
-    $newArticle.addClass('draft');
-  }
+//portfolio piece 4 update: project automated using Handlebars.js
+//see older versions non-handlebars implementation, namely portfolio3 branch
+//Please see the documentation here for Handlebars.js || http://handlebarsjs.com/reference.html
+  var templateFiller = Handlebars.compile($('#article-template').html());
+  this.daysAgo = parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000);
+  this.publishStatus = this.publishedOn ? `published ${this.daysAgo} days ago` : '(draft)';
 
-  //Big sections, here is what they all do. These first two methods will grab the attributes of data-category and author
-  $newArticle.attr('data-category', this.category);
-  $newArticle.attr('data-author', this.author);
+  var filledTemplate = templateFiller(this);
+  return filledTemplate;
 
-//and now, across our psuedo-JSON in blogArticles.js, we will find each appropriate tag [byline, h1, .article-body, etc]
-//and then we will append each section of that information using just jquery
-  $newArticle.find('.byline a').html(this.author);
-  $newArticle.find('.byline a').attr('href', this.authorUrl);
-  $newArticle.find('h1:first').html(this.title);
-  $newArticle.find('.article-body').html(this.body);
-  $newArticle.find('time[pubdate]').attr('datetime', this.publishedOn);
-  $newArticle.find('time[pubdate]').attr('title', this.publishedOn);
-  $newArticle.find('time').html('about ' + parseInt((new Date() - new Date(this.publishedOn)) / 60 / 60 / 24 / 1000) + ' days ago');
-
-  //and now we append all of this to the <hr> tag so we have a nice visual line seperating it all out.
-  $newArticle.append('<hr>');
-  return $newArticle;
-  //end of .toHtml prototype
 };
 
 rawData.sort(function(a,b) {
@@ -45,18 +31,9 @@ rawData.sort(function(a,b) {
 });
 
 rawData.forEach(function(articleObject) {
-  // REVIEW: Take a look at this forEach method; This may be the first time we've seen it.
   articles.push(new Article(articleObject));
 });
 
-articles.forEach(function(article) {
+articles.forEach(function(article){
   $('#articles').append(article.toHtml());
 });
-
-// Toggle click the mobile menu
-var $menu = $('nav.main-nav ul');
-
-$('.icon-menu').click(function() {
-  $menu.toggleClass('open');
-});
-

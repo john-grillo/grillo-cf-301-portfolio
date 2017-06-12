@@ -6,27 +6,23 @@ var articleView = {};
 
 articleView.populateFilters = function() {
   $('article').each(function() {
-    var authorName, category, optionTag;
     if (!$(this).hasClass('template')) {
+      var val = $(this).find('address a').text();
+      //ArticleView function was rewritten to allow for easier interpolation.
+      var optionTag = `<option value="${val}">${val}</option>`;
 
-      //All author  names are being scrapped and added to the author option filter
-      // Authors' name is grabbed in the $(this) element, which jQuery grabs from every page article. Then, that option is populated via the optionTag variable.
-      //Finally, #author-filter is appended with the data in the jQuery object.
-      authorName = $(this).attr('data-author');
-      optionTag = '<option value="' + authorName + '">' + authorName + '</option>';
-
-      if ($('#author-filter option[value="' + authorName + '"]').length === 0) {
+      if ($(`#author-filter option[value="${val}"]`).length === 0) {
         $('#author-filter').append(optionTag);
       }
 
-      //This code bloc will check to see if the category name already exists
-      category = $(this).attr('data-category');
-      optionTag = '<option value="' + category + '">' + category + '</option>';
-      if ($('#category-filter option[value="' + category + '"]').length === 0) {
+      val = $(this).attr('data-category');
+      optionTag = `<option value="${val}">${val}</option>`;
+      if ($(`#category-filter option[value="${val}"]`).length === 0) {
         $('#category-filter').append(optionTag);
       }
     }
   });
+};
 
 //end articleView populatefilter function
 };
@@ -52,47 +48,38 @@ articleView.handleAuthorFilter = function() {
 };
 
 // Category Filter
+//refatored to take advantage of the Handlebars.js
 articleView.handleCategoryFilter = function() {
   $('#category-filter').on('change', function() {
     if ($(this).val()) {
-      var filterVal = $(this).val();
-      $('article').each(function(index) {
-        var catStandOut = $('article').eq(index).attr('data-category');
-        $('article').eq(index).hide();
-
-        if (filterVal === catStandOut) {
-          $('article').eq(index).fadeIn(750);
-        }  //end of if block
-      });
+      $('article').hide();
+      $(`article[data-category="${$(this).val()}"]`).fadeIn();
     } else {
-      $('article').show();
+      $('article').fadeIn();
       $('article.template').hide();
     }
     $('#author-filter').val('');
   });
-//end of Category filter  
 };
 
 //beginning of main navigation handler
-articleView.handleMainNav = function() {
-    //So all list item 'tabs' in the main-nav class will, on click...
-    //The idea is that it by default it will hide the tabs and then show just the tabbed content selcted by the user via a click.
-    //$('main-nav) grabs the
-    $('.main-nav li.tab').on('click', function(){
-        $('.tab-content').hide();
-        var clickedTab = $(this).data('content');
-        $('#' + clickedTab).show();
+articleView.handleMainNav = function () {
+  //So all list item 'tabs' in the main-nav class will, on click...
+  //The idea is that it by default it will hide the tabs and then show just the tabbed content selcted by the user via a click.
+  //$('main-nav) has been rewritten for automation.
+  $('.main-nav').on('click', '.tab', function () {
+    $('.tab-content').hide();
+    $('#' + $(this).data('content')).fadeIn();
+  });
 
-     //end of on-click section   
-    });
-    $('.main-nav .tab:first').click(); //this will set up the page by default. Otherwise, nothing would show
+  $('.main-nav .tab:first').click();//this will set up the page by default. Otherwise, nothing would show
 
-//end of handleMainNav  
+  //end of handleMainNav  
 };
 
 //set up teasers. Hey, we want to hook people with our content, right?
 articleView.setTeasers = function() {
-  $('.article-body *:nth-of-type(n+2)').hide();
+  $('.article-body *:nth-of-type(n+3)').hide();
   $('article').on('click', 'a.read-on', function(e) {
     e.preventDefault();
     if ($(this).text() === 'Read on →') {
@@ -103,7 +90,7 @@ articleView.setTeasers = function() {
         scrollTop: ($(this).parent().offset().top)
       },200);
       $(this).html('Read on &rarr;');
-      $(this).parent().find('.article-body *:nth-of-type(n+2)').hide();
+      $(this).parent().find('.article-body *:nth-of-type(n+3)').hide();
     }
   });
 };
